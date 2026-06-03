@@ -1,0 +1,88 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "AI-Genius JWT RBAC Assignment",
+  "dateExported": "2026-06-03",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "name": "Login Admin",
+      "method": "POST",
+      "url": "http://localhost:5000/api/auth/login",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"admin@aigenius.com\",\n  \"password\": \"password123\"\n}"
+      }
+    },
+    {
+      "name": "Access Free Model",
+      "method": "GET",
+      "url": "http://localhost:5000/api/ai/free-model",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer ACCESS_TOKEN_HERE"
+        }
+      ]
+    },
+    {
+      "name": "Access Premium Model",
+      "method": "POST",
+      "url": "http://localhost:5000/api/ai/premium-model",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer ACCESS_TOKEN_HERE"
+        }
+      ]
+    },
+    {
+      "name": "Admin Purge Cache",
+      "method": "DELETE",
+      "url": "http://localhost:5000/api/ai/purge-cache",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer ACCESS_TOKEN_HERE"
+        }
+      ]
+    },
+    {
+      "name": "Refresh Token",
+      "method": "POST",
+      "url": "http://localhost:5000/api/auth/refresh"
+    },
+    {
+      "name": "Login Free User",
+      "method": "POST",
+      "url": "http://localhost:5000/api/auth/login",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"free@aigenius.com\",\n  \"password\": \"password123\"\n}"
+      }
+    },
+    {
+      "name": "Free User Access Denied on Premium Model",
+      "method": "POST",
+      "url": "http://localhost:5000/api/ai/premium-model",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer FREE_USER_ACCESS_TOKEN_HERE"
+        }
+      ]
+    }
+  ]
+}
