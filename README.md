@@ -1,46 +1,47 @@
-# AI-Genius JWT Authentication & RBAC System
+# AI-Genius Secure Authentication API
 
-This project is a secure authentication and authorization backend for **AI-Genius**, a mock SaaS platform that provides access to AI text and image generation models.
+This repository contains the backend security module for **AI-Genius**, a sample SaaS-based AI platform. The system manages user login, JWT authentication, refresh tokens, and role-based access control for different AI model endpoints.
 
-The backend is built using **Node.js**, **Express.js**, **JWT**, **bcrypt**, and **Role-Based Access Control (RBAC)**.
+The project is developed using **Node.js**, **Express.js**, **JSON Web Tokens**, **bcryptjs**, and **RBAC middleware**.
 
 ---
 
-## Project Overview
+## Overview
 
-AI-Genius has three types of users:
+AI-Genius provides AI services to different user tiers. Since some AI models are only available to paid or administrative users, the backend must verify user identity and check user roles before allowing access.
+
+The application supports three roles:
 
 1. **Admin**
 2. **Premium_User**
 3. **Free_User**
 
-Because premium AI models are expensive to run, this backend strictly controls access using authentication, token expiration, refresh tokens, and role-based authorization.
+Each role has different permissions for accessing the mock AI APIs.
 
 ---
 
-## Features
+## Main Features
 
-- User login with hashed passwords
-- Password hashing using bcrypt
-- Access Token and Refresh Token system
-- Short-lived Access Token
-- Long-lived Refresh Token
-- Refresh Token stored in httpOnly cookie
-- JWT payload contains user id, email, and role
-- Password is never stored inside JWT
-- Authentication middleware using Bearer token
-- Role-Based Access Control middleware
-- Centralized error handling
-- Mock AI endpoints for Free User, Premium User, and Admin
-- Environment variables managed using dotenv
+- Secure user login system
+- Passwords encrypted with bcryptjs
+- JWT-based authentication
+- Short expiry access token
+- Long expiry refresh token
+- Refresh token saved in an httpOnly cookie
+- JWT stores only safe user information
+- Protected routes using custom authentication middleware
+- Role checking using RBAC middleware
+- Separate access for Free, Premium, and Admin users
+- Central error handling for invalid, missing, or expired tokens
+- Configuration handled through environment variables
 
 ---
 
-## Technologies Used
+## Technologies
 
 - Node.js
 - Express.js
-- JSON Web Token
+- JWT
 - bcryptjs
 - dotenv
 - cookie-parser
@@ -49,7 +50,7 @@ Because premium AI models are expensive to run, this backend strictly controls a
 
 ---
 
-## Project Structure
+## Folder Structure
 
 ```text
 WTASSIGNMENT3
@@ -81,4 +82,5 @@ WTASSIGNMENT3
 ├── .gitignore
 ├── package.json
 ├── package-lock.json
+├── thunder-collection.json
 └── README.md
